@@ -7,10 +7,12 @@ function LoginPage() {
 
     function handleLogin() {
         if (!isValidEmail(email)) {
-            throw new Error('Invalid email format or email is missing');
+            alert('Invalid email format or email is missing');
+            return;
         }
         if (!isValidPassword(password)) {
-            throw new Error('Password must be at least 8 characters long and include at least one number');
+            alert('Password must be at least 8 characters long and include at least one number');
+            return;
         }
 
         console.log('Login successful:', { email, password });

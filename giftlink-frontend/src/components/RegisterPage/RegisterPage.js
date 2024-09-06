@@ -10,32 +10,21 @@ function RegisterPage() {
 function handleRegister(firstName, lastName, email, password) {
     
 
-    // Validate first name
     if (!isValidName(firstName)) {
-        throw new Error('First name is required');
-    } else {
-        setFirstName(firstName.trim());
+        alert('First name is required');
+        return;
     }
-
-    // Validate last name
     if (!isValidName(lastName)) {
-        throw new Error('Last name is required');
-    } else {
-        setLastName(lastName.trim());
+        alert('Last name is required');
+        return;
     }
-
-    // Validate email
     if (!isValidEmail(email)) {
-        throw new Error('Invalid email format or email is missing');
-    } else {
-        setEmail(email.trim());
+        alert('Invalid email format or email is missing');
+        return;
     }
-
-    // Validate password
     if (!isValidPassword(password)) {
-        throw new Error('Password must be at least 8 characters long and include at least one number');
-    } else {
-        setPassword(password.trim());
+        alert('Password must be at least 8 characters long and include at least one number');
+        return;
     }
 
     // Proceed if all values are valid
@@ -43,14 +32,14 @@ function handleRegister(firstName, lastName, email, password) {
 }
     // Validation functions
 const isValidName = (name) => {
-    return name && name.trim() !== '';
+    return name && name !== '';
 };
 const isValidEmail = (email) => {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return email && email.trim() !== '' && emailPattern.test(email);
+    return email && email !== '' && emailPattern.test(email);
 };
 const isValidPassword = (password) => {
-    return password && password.trim() !== '' && password.length >= 8 && /\d/.test(password);
+    return password && password !== '' && password.length >= 8 && /\d/.test(password);
 };
     
 return (
@@ -59,22 +48,22 @@ return (
             <h2 className="text-center mb-4">Register</h2>
             <input
                 type="text"
-                placeholder={firstName}
+                placeholder="First Name"
                 onChange={(e) => setFirstName(e.target.value)}
             />
             <input
                 type="text"
-                placeholder={lastName}
+                placeholder="Last Name"
                 onChange={(e) => setLastName(e.target.value)}
             />
             <input
                 type="email"
-                placeholder={email}
+                placeholder="Email"
                 onChange={(e) => setEmail(e.target.value)}
             />
             <input
                 type="password"
-                placeholder={password}
+                placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
             />
             <button className="btn-primary" onClick={() => handleRegister([firstName, lastName, email, password])}>
