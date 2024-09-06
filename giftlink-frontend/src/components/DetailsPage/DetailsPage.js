@@ -12,10 +12,10 @@ function DetailsPage() {
 
     useEffect(() => {
         const authenticationToken = sessionStorage.getItem('auth-token');
-       /* if (!authenticationToken) {
+        if (!authenticationToken) {
             navigate('/app/login');
             return;
-        }*/
+        }
 
         const fetchGift = async () => {
             try {
