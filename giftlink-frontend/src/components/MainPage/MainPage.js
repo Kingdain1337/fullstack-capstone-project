@@ -24,7 +24,7 @@ function MainPage() {
 
     // Task 2: Navigate to details page
     const goToDetailsPage = (productId) => {
-        navigate(`/details/${productId}`);
+        navigate(`details/${productId}`);
     };
 
     // Task 3: Format timestamp
