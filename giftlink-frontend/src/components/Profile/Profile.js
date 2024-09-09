@@ -12,12 +12,7 @@ const Profile = () => {
   const navigate = useNavigate();
   const { authToken, handleLogin, checkAuth } = useAppContext();
 
-  useEffect(() => {
-    checkAuth();
-    fetchUserProfile();
-  }, [navigate, checkAuth, fetchUserProfile]);
-
-  const fetchUserProfile = async () => {
+  const fetchUserProfile = useCallback(async () => {
     const url = `${urlConfig.backendUrl}/api/auth/profile`;
     const options = {
         method: 'GET',
@@ -40,7 +35,12 @@ const Profile = () => {
     } catch (error) {
       console.error(error);
     }
-  };
+  });
+
+  useEffect(() => {
+    checkAuth();
+    fetchUserProfile();
+  }, [navigate, checkAuth, fetchUserProfile]);
 
   const handleEdit = () => {
     setEditMode(true);
