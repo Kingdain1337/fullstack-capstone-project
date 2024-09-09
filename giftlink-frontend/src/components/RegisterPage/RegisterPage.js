@@ -33,7 +33,7 @@ function RegisterPage() {
         }
         console.log('All values are valid. Proceeding with registration.');
 
-        try {
+        try {                                                                                                         // <--- Fetch request here
             const response = await fetch(`${urlConfig.backendUrl}/api/auth/register`, {
                 method: 'POST',
                 headers: {'content-type': 'application/json'},
