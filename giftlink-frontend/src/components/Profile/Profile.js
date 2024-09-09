@@ -35,7 +35,7 @@ const Profile = () => {
     } catch (error) {
       console.error(error);
     }
-  });
+  },[authToken]);
 
   useEffect(() => {
     checkAuth();
