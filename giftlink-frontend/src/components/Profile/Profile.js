@@ -10,13 +10,13 @@ const Profile = () => {
   const [changed, setChanged] = useState("");
   const [editMode, setEditMode] = useState(false);
   const navigate = useNavigate();
-  const { authToken, email, userName, handleLogin, checkAuth } = useAppContext();
+  const { authToken, handleLogin, checkAuth } = useAppContext();
 
   useEffect(() => {
     checkAuth();
 
     fetchUserProfile();
-  }, [navigate]);
+  }, [navigate, checkAuth]);
 
   const fetchUserProfile = async () => {
     const url = `${urlConfig.backendUrl}/api/auth/profile`;

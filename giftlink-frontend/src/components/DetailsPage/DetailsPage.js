@@ -32,7 +32,7 @@ function DetailsPage() {
 
         fetchGift();
         window.scrollTo(0, 0);
-    }, [productId, navigate]);
+    }, [productId, navigate, checkAuth]);
 
     const handleBackClick = () => {
         navigate(-1);
