@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import {urlConfig} from '../../config';
+import { useAppContext } from '../../context/AuthContext';
 import './DetailsPage.css';
 
 function DetailsPage() {
@@ -9,13 +10,10 @@ function DetailsPage() {
     const [gift, setGift] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const { checkAuth } = useAppContext();
 
     useEffect(() => {
-        const authenticationToken = sessionStorage.getItem('auth-token');
-        if (!authenticationToken) {
-            navigate('/app/login');
-            return;
-        }
+        checkAuth();
 
         const fetchGift = async () => {
             try {
