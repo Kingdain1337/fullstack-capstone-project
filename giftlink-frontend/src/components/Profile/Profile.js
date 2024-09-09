@@ -14,9 +14,8 @@ const Profile = () => {
 
   useEffect(() => {
     checkAuth();
-
     fetchUserProfile();
-  }, [navigate, checkAuth]);
+  }, [navigate, checkAuth, fetchUserProfile]);
 
   const fetchUserProfile = async () => {
     const url = `${urlConfig.backendUrl}/api/auth/profile`;
